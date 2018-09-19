@@ -36,10 +36,11 @@ ResourceSelector를 위한 다이얼로그.
 			margin-top:0px !important;
 			@apply(--things-padding-clear)
 		}
-		paper-toolbar::shadow #topBar {
+		/* 적용되지 않아 주석처리
+			paper-toolbar::shadow #topBar {
 			height:45px;
 			@apply(--things-padding-clear)
-		}
+		} */
 		.size5 {
 			height: 80%;
 			width: 70%;
@@ -315,7 +316,14 @@ ResourceSelector를 위한 다이얼로그.
 		 */
 		getDialog: function() {
 			return this.$[this._dialogId];
-		}
+		},
+		attached: function() {
+			//topbar 패딩 없애기 
+			var toolbarFind = this.$['popup-toolbar'];
+			var topbarRoot = toolbarFind.$.topBar;
+			topbarRoot.style.height = "45px";
+			topbarRoot.style.padding = "0px";
+      	}		
 	});
 	</script>
 </dom-module>
