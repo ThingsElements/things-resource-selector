@@ -198,8 +198,14 @@ Copyright © HatioLab Inc. All rights reserved.
          * *******
          * @param {Object} event
          */
+        /**
+         * Submit 전에 전처리 핸들
+         * Pagination을 사용하는 경우에 page, limit 정보를 파라미터에 추가한다.
+         * *******
+         * @param {Object} event
+         */
         handleBeforeSubmit: function(event) {
-            var form = event.srcElement;
+            var form = this.getMyForm();
             var evt = this.fire('things-form-pre-submit', form, {
                 cancelable: true
             });
