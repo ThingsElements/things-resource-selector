@@ -359,6 +359,12 @@ Copyright © HatioLab Inc. All rights reserved.
 							if(varData) varData = varData.id || '';
 							searchParams = searchParams.replace(varName, varData);
 
+						}else if(varRealName.indexOf('.') > 0){
+							var fistName = varRealName.substr(0, varRealName.lastIndexOf('.'));
+							var lastName = varRealName.substr(varRealName.lastIndexOf('.')+1);
+							varData = ownerData[fistName] || '';
+							if(varData) varData = varData[lastName] || '';
+							searchParams = searchParams.replace(varName, varData);
 						} else {
 							searchParams = searchParams.replace(varName, varData);
 						}
